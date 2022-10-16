@@ -1,5 +1,5 @@
-import { useMutation, useQuery } from "react-query";
-import React, { useState } from "react";
+import { useQuery } from "react-query";
+import React from "react";
 import { FaUserPlus } from "react-icons/fa";
 import { API } from "../config/API";
 
@@ -12,7 +12,7 @@ export default function Modal({ id, age, setModal }) {
     <>
       <div className="w-full h-full bg-slate-500 opacity-50 fixed z-20"></div>
       <div className="bg-slate-200  centered w-[90%] md:w-[35rem] z-50 rounded-lg pb-3">
-        <div className="bg-orange-600 rounded-t-lg mb-3 pl-4 pt-2 flex items-center">
+        <div className="bg-[#fb923c] rounded-t-lg mb-3 pl-4 pt-2 flex items-center">
           <div className="text-2xl font-bold mb-3 text-white flex gap-2 items-center">
             <FaUserPlus size={30} /> Data
           </div>
@@ -44,10 +44,7 @@ export default function Modal({ id, age, setModal }) {
               <span>Negara</span>
               <span>: {user?.country}</span>
             </div>
-            <button
-              className="bg-orange-500 py-2 text-white font-bold rounded-lg"
-              onClick={() => setModal(false)}
-            >
+            <button className="bg-orange-500 py-2 text-white font-bold rounded-lg" onClick={() => setModal(false)}>
               {" "}
               Close
             </button>
