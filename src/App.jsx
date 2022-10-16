@@ -57,9 +57,7 @@ function App() {
   function searchTerm(items) {
     return items.filter((item) => {
       return searchParam.some((newItem) => {
-        return (
-          item[newItem].toString().toLowerCase().indexOf(q.toLowerCase()) > -1
-        );
+        return item[newItem].toString().toLowerCase().indexOf(q.toLowerCase()) > -1;
       });
     });
   }
@@ -76,16 +74,7 @@ function App() {
   return (
     <>
       {detail && <DetailModal id={id} age={getAge} setModal={setDetail} />}
-      {confirm && (
-        <ConfirmModal
-          confirm={confirm}
-          setConfirm={setConfirm}
-          del={del}
-          setDel={setDel}
-          id={id}
-          refetch={refetch}
-        />
-      )}
+      {confirm && <ConfirmModal confirm={confirm} setConfirm={setConfirm} del={del} setDel={setDel} id={id} refetch={refetch} />}
       {modal && <Modal modal={modal} setModal={setModal} />}
       {update && <ModalUpdate id={id} update={update} setUpdate={setUpdate} />}
       <div className="p-7">
@@ -95,13 +84,7 @@ function App() {
         <div className="flex flex-col gap-7 bg-orange-200 px-6 py-10 mt-7 rounded-xl">
           <div className="flex flex-col ">
             <label htmlFor="nik">NIK</label>
-            <input
-              id="nik"
-              type="number"
-              placeholder="search..."
-              className="bg-gray-50 border border-gray-300 text-gray-900 text-md rounded-lg focus:outline-blue-500 w-full md:w-96 px-4 py-2"
-              onChange={(e) => setQ(e.target.value)}
-            />
+            <input id="nik" type="number" placeholder="search..." className="bg-gray-50 border border-gray-300 text-gray-900 text-md rounded-lg focus:outline-blue-500 w-full md:w-96 px-4 py-2" onChange={(e) => setQ(e.target.value)} />
           </div>
           <div className="flex flex-col ">
             <label htmlFor="name">Name</label>
@@ -115,10 +98,7 @@ function App() {
           </div>
         </div>
         <div className="flex justify-end m-4">
-          <button
-            className="flex items-center gap-2 bg-blue-700 text-white px-8 py-2 rounded-lg  hover:bg-orange-800"
-            onClick={() => setModal(!modal)}
-          >
+          <button className="flex items-center gap-2 bg-blue-700 text-white px-8 py-2 rounded-lg  hover:bg-[#fdba74]" onClick={() => setModal(!modal)}>
             <FaUserPlus size={20} /> Add
           </button>
         </div>
@@ -157,10 +137,7 @@ function App() {
                 users
                   ?.filter((asd) => asd.name.toLowerCase().includes(query))
                   .map((item, key) => (
-                    <tr
-                      key={key}
-                      className="bg-white border-b dark:bg-gray-800 dark:border-gray-700"
-                    >
+                    <tr key={key} className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                       <td className="py-4 px-6">{item.nik}</td>
                       <td className="py-4 px-6">{item.name}</td>
                       <td className="py-4 px-6">{getAge(item.date)}</td>
@@ -169,22 +146,13 @@ function App() {
                       <td className="py-4 px-6 w-44">{item.address}</td>
                       <td className="py-4 px-6">{item.country}</td>
                       <td className="py-4 px-6 flex flex-row items-center gap-2">
-                        <div
-                          className="cursor-pointer text-blue-500 hover:text-blue-600 font-semibold hover:underline"
-                          onClick={() => handleDetail(item.nik)}
-                        >
+                        <div className="cursor-pointer text-blue-500 hover:text-blue-600 font-semibold hover:underline" onClick={() => handleDetail(item.nik)}>
                           Detail
                         </div>
-                        <div
-                          className="cursor-pointer text-yellow-500 hover:text-yellow-600 font-semibold hover:underline"
-                          onClick={() => handleUpdate(item.nik)}
-                        >
+                        <div className="cursor-pointer text-yellow-500 hover:text-yellow-600 font-semibold hover:underline" onClick={() => handleUpdate(item.nik)}>
                           Edit
                         </div>
-                        <div
-                          className="cursor-pointer text-red-500 hover:text-red-600 font-semibold hover:underline"
-                          onClick={() => handleDelete(item.nik)}
-                        >
+                        <div className="cursor-pointer text-red-500 hover:text-red-600 font-semibold hover:underline" onClick={() => handleDelete(item.nik)}>
                           Delete
                         </div>
                       </td>
@@ -192,10 +160,7 @@ function App() {
                   ))
               ) : usernik?.length > 0 ? (
                 usernik?.map((item, k) => (
-                  <tr
-                    key={k}
-                    className="bg-white border-b dark:bg-gray-800 dark:border-gray-700"
-                  >
+                  <tr key={k} className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                     <td className="py-4 px-6">{item.nik}</td>
                     <td className="py-4 px-6">{item.name}</td>
                     <td className="py-4 px-6">{getAge(item.date)}</td>
@@ -204,22 +169,13 @@ function App() {
                     <td className="py-4 px-6 w-44">{item.address}</td>
                     <td className="py-4 px-6">{item.country}</td>
                     <td className="py-4 px-6 flex flex-row items-center gap-2">
-                      <div
-                        className="cursor-pointer text-blue-500 hover:text-blue-600 font-semibold hover:underline"
-                        onClick={() => handleDetail(item.nik)}
-                      >
+                      <div className="cursor-pointer text-blue-500 hover:text-blue-600 font-semibold hover:underline" onClick={() => handleDetail(item.nik)}>
                         Detail
                       </div>
-                      <div
-                        className="cursor-pointer text-yellow-500 hover:text-yellow-600 font-semibold hover:underline"
-                        onClick={() => handleUpdate(item.nik)}
-                      >
+                      <div className="cursor-pointer text-yellow-500 hover:text-yellow-600 font-semibold hover:underline" onClick={() => handleUpdate(item.nik)}>
                         Edit
                       </div>
-                      <div
-                        className="cursor-pointer text-red-500 hover:text-red-600 font-semibold hover:underline"
-                        onClick={() => handleDelete(item.nik)}
-                      >
+                      <div className="cursor-pointer text-red-500 hover:text-red-600 font-semibold hover:underline" onClick={() => handleDelete(item.nik)}>
                         Delete
                       </div>
                     </td>
