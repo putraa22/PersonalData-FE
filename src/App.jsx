@@ -51,7 +51,6 @@ function App() {
   }
 
   // seacrh NIK]]
-
   const [q, setQ] = useState("");
   const [searchParam] = useState(["nik", "name"]);
   function searchTerm(items) {
